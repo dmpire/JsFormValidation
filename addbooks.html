@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Books</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script type="text/javascript" src="assets/js/jquery-3.1.1.slim.min.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container-fluid">
+	 	<div class="row col-md-6">
+			<form id="form" name="form">
+				<label class="labels">Title of Book:</label><br>
+					<input type="text" name="title" class="input-lg input-box" maxlength="30" ><br>
+				<label class="labels">Author of Book:</label><br>
+					<input type="text" name="author" class="input-lg input-box" maxlength="30" ><br>
+				<label class="labels">Year of Publication:</label><br>
+					<input type="text" name="year" class="input-lg input-box" size="4"><br>
+				<label class="labels">ISBN:</label><br>
+					<input type="text" name="isbn" class="input-lg input-box" maxlength="13"><br>
+				<input type="button" class="btn btn-danger input-box" onclick="validateForm();" id="button" value="Submit">
+			</form>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+	//This next step is made possible because the inputs all have the name="" attribute.
+		var title = document.form.title;
+		var author = document.form.author;
+		var year = document.form.year;
+		var isbn = document.form.isbn;
+
+	//This is the function that ultimately validates the form.
+		function validateForm(){
+			//Just another way of saying if all the funtions listed within the parenthesis are true, then the following should be alerted.
+			if (title_validation() && author_validation() && year_validation() &&  isbn_validation()) {
+
+				alert("Book Title: "+ title.value + ". Author : " + author.value + ". Published in : " + year.value +". The ISBN number is " + isbn.value + ".");
+			} else {
+				return false;
+			}
+
+			
+		}
+
+		//The preceding function validates the title input. Making sure it's not empty.
+		function title_validation(){
+			var title_val = title.value;
+			if(title_val == 0 || title_val == ''){
+				alert("Please, put in the book\'s title.");
+				return false;
+			}
+			return true;
+		}
+
+		//The preceding function validates the author input.
+		function author_validation(){
+			var author_val = author.value;
+			if(author_val == 0){
+				alert("Who wrote the book?");
+				return false;
+			}
+			return true;
+		}
+
+		//The preceding function validates the year input.
+		function year_validation(year_val){
+			var year_val = year.value;
+			if(year_val == 0 || year_val < 1600 || year_val > 2017){
+				alert("Enter a valid year of Publish, Please.");
+				return false;
+			}
+			return true;
+		}
+
+		function isbn_validation(){
+			var numbers = /^[0-9]+$/;  //This specifies that only digits from 0 - 9 may be entered.
+			var isbn_val = isbn.value;
+			if(isbn_val.match(numbers)){
+				return true;
+			} else
+				{
+				alert("Please enter digits.");
+				return false;
+			}
+		}
+		
+	</script>
+	
+</body>
+</html>

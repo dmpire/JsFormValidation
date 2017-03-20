@@ -1,0 +1,28 @@
+form {
+	text-align: center;
+	font-size: 16px;
+	border:1px solid #000000;
+	background-color: #d8ffd3;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	margin-left: 30px;
+	margin-top: 40px;
+}
+
+.labels{
+	margin:15px 0 5px 10px;
+}
+
+.input-box{
+	/*margin:5px 0 5px 30px;*/
+	border:1px solid #000000;
+}
+
+.input-box:focus{
+	border:1px solid #000000;
+}
+
+#button {
+	margin-top: 10px;
+	border:0px;
+}
